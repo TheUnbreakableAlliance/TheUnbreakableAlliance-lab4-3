@@ -1,18 +1,18 @@
-import math
+from math import ceil
+
 
 class DynamicArray(object):
     def __init__(self, capacity=1, grow_factor=0.2):
         self.length = 0    # Actual number of elements in dynamic array
         self.capacity = capacity  # Initialize chunk of memory size to 1
         self.grow_factor = grow_factor   # grow_factor is set to 1.2
-        #self.__start_num = -1
         self.chunk = [None] * self.capacity     # Allocate initialized memory blocks
 
     def add_element(self, element):
         if element is not None and type(element) != int:
-            return ('Input data must be int or None, please check it')
+            return 'Input data must be int or None, please check it'
         if self.length == self.capacity:
-            add_chunk_size = math.ceil(self.capacity * self.grow_factor)
+            add_chunk_size = ceil(self.capacity * self.grow_factor)
             self.chunk += [None] * add_chunk_size
             self.capacity = self.capacity + add_chunk_size
         self.chunk[self.length] = element
@@ -25,16 +25,16 @@ class DynamicArray(object):
         else:
             for i in range(self.length):
                 if self.chunk[i] != other.chunk[i]:
-                    return  False
+                    return False
         return True
 
-    def __str__(self):     ## String serialization
+    def __str__(self):     # String serialization
         return str(self.chunk[:self.length])
 
 
-def cons(lst,element= None):
+def cons(lst, element=None):
     if type(lst) is int and type(element) == DynamicArray:
-        res = cons(element,lst)
+        res = cons(element, lst)
     else:
         assert type(lst) == DynamicArray
         res = DynamicArray()
@@ -43,26 +43,30 @@ def cons(lst,element= None):
         res.add_element(element)
     return res
 
-def remove(lst,value=None):
+
+def remove(lst, value=None):
     assert type(lst) == DynamicArray
     if value < 0 or value >= lst.length:
-        return ('The location accessed is not in the dynamic array')
+        return 'The location accessed is not in the dynamic array'
     res = DynamicArray()
     for i in range(lst.length):
         if i != value:
             res.add_element(lst.chunk[i])
     return res
 
+
 def length(lst):
     assert type(lst) == DynamicArray
     return lst.length
 
-def member(lst,v):
+
+def member(lst, v):
     assert type(lst) == DynamicArray
     if v not in lst.chunk[:lst.length]:
         return False
     else:
         return True
+
 
 def reverse(lst):
     assert type(lst) == DynamicArray
@@ -71,12 +75,14 @@ def reverse(lst):
         res.add_element(lst.chunk[lst.length-i-1])
     return res
 
+
 def to_list(lst):
     assert type(lst) == DynamicArray
     res = []
     for i in range(lst.length):
         res.append(lst.chunk[i])
     return res
+
 
 def from_list(lst):
     assert type(lst) == list
@@ -85,13 +91,14 @@ def from_list(lst):
         res.add_element(i)
     return res
 
+
 def find(lst, function):
     assert callable(function)
-    res = DynamicArray
     for i in lst.chunk:
         if function(i):
             return True
     return False
+
 
 def filter(lst, function):
     assert callable(function)
@@ -101,14 +108,15 @@ def filter(lst, function):
             res.add_element(lst.chunk[i])
     return res
 
+
 def map(lst, function):
     assert type(lst) == DynamicArray
     assert callable(function)
     res = DynamicArray()
     for i in range(lst.length):
-        #x = function(i)
         res.add_element(function(lst.chunk[i]))
     return res
+
 
 def reduce(lst, function, initial_state):
     assert type(lst) == DynamicArray
@@ -120,42 +128,45 @@ def reduce(lst, function, initial_state):
             state = function(state, lst.chunk[i])
     return state
 
+
 def iterator(lst):
-    length =lst.length
+    length = lst.length
     res = lst
-    index=0
+    index = 0
+
     def foo():
         nonlocal res
         nonlocal length
         nonlocal index
-        if ((index >= length) | (res is None)) : raise StopIteration
+        if index >= length | res is None:
+            raise StopIteration
         tmp = res.chunk[index]
-        index=index+1
+        index = index+1
         return tmp
     return foo
+
 
 def empty():
     return DynamicArray
 
-def concat(lst1,lst2):
+
+def concat(lst1, lst2):
     assert type(lst1) == DynamicArray
-    #assert type(lst2) == DynamicArray
     res = DynamicArray()
     for i in range(lst1.length):
-        #cons(res, i)
         res.add_element(lst1.chunk[i])
     for j in range(lst2.length):
-        #cons(res, j)
         res.add_element(lst2.chunk[j])
     return res
 
-def eq(lst1,lst2):
+
+def eq(lst1, lst2):
     assert type(lst1) == DynamicArray
     assert type(lst2) == DynamicArray
     return lst1.__eq__(lst2)
+
 
 def str1(lst):
     assert type(lst) == DynamicArray
     res = str(lst.chunk[:lst.length])
     return res
-

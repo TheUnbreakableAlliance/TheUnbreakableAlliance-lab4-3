@@ -39,7 +39,7 @@ class TestDynamicArray(unittest.TestCase):
     def test_is_member(self):
         empty1 = DynamicArray()
         l1 = cons(cons(empty1, 1), None)
-        self.assertFalse(member(empty1,None))
+        self.assertFalse(member(empty1, None))
         self.assertTrue(member(l1, None))
         self.assertTrue(member(l1, 1))
         self.assertFalse(member(l1, 2))
@@ -53,7 +53,6 @@ class TestDynamicArray(unittest.TestCase):
     def test_to_list(self):
         empty1 = DynamicArray()
         l1 = cons(cons(empty1, 1), None)
-        l2 = cons(cons(empty1, None), 1)
         self.assertEqual(to_list(l1), [1, None])
 
     def test_from_list(self):
@@ -65,21 +64,21 @@ class TestDynamicArray(unittest.TestCase):
 
     def test_find(self):
         l1 = from_list([1, 2, 3, 4])
-        self.assertTrue(find(l1, lambda x : x % 2 ==0 ))
+        self.assertTrue(find(l1, lambda x: x % 2 == 0))
         self.assertFalse(find(l1, lambda x: x % 5 == 0))
 
     def test_filter(self):
         l1 = from_list([1, 2, 3, 4])
-        self.assertEqual(filter(l1, lambda x : x % 2 ==0 ), from_list([2, 4]))
+        self.assertEqual(filter(l1, lambda x: x % 2 == 0), from_list([2, 4]))
         self.assertEqual(to_list(filter(l1, lambda x: x % 2 == 0)), [2, 4])
 
     def test_map(self):
         l1 = from_list([1, 2, 3, 4])
-        self.assertEqual(map(l1, lambda x: x % 2 ), from_list([1, 0, 1, 0]))
+        self.assertEqual(map(l1, lambda x: x % 2), from_list([1, 0, 1, 0]))
 
-    def test_decucer(self):
+    def test_reduce(self):
         l1 = from_list([1, 2, 3, 4])
-        self.assertEqual(reduce(l1, lambda x, y : x * y, 1), 24)
+        self.assertEqual(reduce(l1, lambda x, y: x * y, 1), 24)
 
     def test_iter(self):
         x = [1, 2, 3, 4]
@@ -103,7 +102,7 @@ class TestDynamicArray(unittest.TestCase):
         l1 = cons(cons(empty1, 1), None)
         l2 = cons(cons(empty1, None), 1)
         l3 = from_list([1, None, None, 1])
-        self.assertEqual(concat(l1,l2), l3)
+        self.assertEqual(concat(l1, l2), l3)
 
     def test_eq(self):
         empty1 = DynamicArray()
@@ -114,7 +113,6 @@ class TestDynamicArray(unittest.TestCase):
     def test_str(self):
         empty1 = DynamicArray()
         l1 = cons(cons(empty1, 1), None)
-        #l2 = cons(cons(empty1, 1), None)
         self.assertEqual(str1(l1), "[1, None]")
 
     @given(st.lists(st.integers()))
@@ -128,11 +126,9 @@ class TestDynamicArray(unittest.TestCase):
         self.assertEqual(concat(res, lst), lst)
         self.assertEqual(concat(lst, res), lst)
 
-    @given(a=st.lists(st.integers()),b=st.lists(st.integers()),c=st.lists(st.integers()))
-    def test_monoid_associativity(self,a,b,c):
+    @given(a=st.lists(st.integers()), b=st.lists(st.integers()), c=st.lists(st.integers()))
+    def test_monoid_associativity(self, a, b, c):
         lst1 = from_list(a)
         lst2 = from_list(b)
-        lst3= from_list(c)
-        self.assertEqual(concat(concat(lst1, lst2),lst3),concat(lst1,concat(lst2, lst3)))
-
-
+        lst3 = from_list(c)
+        self.assertEqual(concat(concat(lst1, lst2), lst3), concat(lst1, concat(lst2, lst3)))
