@@ -1,10 +1,10 @@
 # TheUnbreakableAlliance-lab1-8
 
-This is lab1 report.
+This is lab2 report.
 
 ## Variant
 
-(8) Dictionary based on hash-map, open address
+(2) Dynamic array
 
 ## laboratory work description
 
@@ -34,8 +34,8 @@ This is lab1 report.
 
 ## Project structure
 
-- `Dict_mutable.py` -- implementation of `Dict` class with `remove` 、`add` etc.
-- `Dict_mutable_test.py` -- unit and PBT tests for `Foo`.
+- `Dynamic_array.py` -- implementation of `Dynamic_array` class with `Add_a_new_element` 、`Remove` etc.
+- `Dynamic_array_test.py` -- unit and PBT tests for `Dynamic_array`.
 
 ## Features
 
@@ -63,26 +63,9 @@ This is lab1 report.
 
 ## Changelog
 
-- 08.05.2022 - 1
-- Fan Yuxin add `test_monoid_associativity(a)`,
-- Modify `test_monoid_identity(a)`,`concat(dict)`
-- 05.05.2022 - 1
-- Fan Yuxin add `test_monoid_identity(a)`,
-- Remove dead code and commented code.
-- 24.04.2022 - 2
-- Wen Wenchao added `test_get()`, `test_member()`,
-- changed  `test_find()`, `test_remove()`.
-- 24.04.2022 - 1
-- Fan Yuxin add `get(key)`, `member(key)`,
-- change  `find(key)`, `remove(key)`,`from_list()`,`add(item)``concat(dict)`.
-- 19.04.2022 - 2
-- Wen Wenchao fixed `Dict_mutable_test.py`.
-- 19.04.2022 - 1
-- Fan Yuxin fixed `Dict_mutable.py`.
-- 13.04.2022 - 2
-- Wen Wenchao uploaded `Dict_mutable_test.py`.
+- Fan Yuxin uploaded `Dynamic_array_test.py`.
 - 13.04.2022 - 1
-- Fan Yuxin uploaded `Dict_mutable.py`.
+- Wen Wenchao uploaded `Dynamic_array.py`.
 - 11.04.2022 - 0
   - Initial
 
