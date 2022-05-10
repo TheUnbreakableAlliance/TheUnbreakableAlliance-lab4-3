@@ -138,7 +138,7 @@ def iterator(lst):
         nonlocal res
         nonlocal length
         nonlocal index
-        if index >= length | res is None:
+        if (index >= length) | (res is None):
             raise StopIteration
         tmp = res.chunk[index]
         index = index+1
