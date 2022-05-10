@@ -126,9 +126,12 @@ class TestDynamicArray(unittest.TestCase):
         self.assertEqual(concat(res, lst), lst)
         self.assertEqual(concat(lst, res), lst)
 
-    @given(a=st.lists(st.integers()), b=st.lists(st.integers()), c=st.lists(st.integers()))
+    @given(a=st.lists(st.integers()),
+           b=st.lists(st.integers()),
+           c=st.lists(st.integers()))
     def test_monoid_associativity(self, a, b, c):
         lst1 = from_list(a)
         lst2 = from_list(b)
         lst3 = from_list(c)
-        self.assertEqual(concat(concat(lst1, lst2), lst3), concat(lst1, concat(lst2, lst3)))
+        self.assertEqual(concat(concat(lst1, lst2), lst3),
+                         concat(lst1, concat(lst2, lst3)))
