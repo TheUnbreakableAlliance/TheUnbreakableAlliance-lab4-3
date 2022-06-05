@@ -58,7 +58,7 @@ def Help(s):
     if s in ['usage', 'sub-commands', 'position-arguments', 'named-arguments']:
         result = s + ': '
         if s == 'usage':
-            result = result + '\n [--version | -V |-v ]' \
+            result = result + '\n [--version | -V |-v ] ' \
                               '[-h] [PATH] [-r][cat a|n|d] [-hex]'
         elif s == 'sub-commands':
             result = result + '\n cat a: add data to the file ' \
