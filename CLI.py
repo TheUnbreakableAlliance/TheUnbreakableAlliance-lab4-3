@@ -8,7 +8,8 @@ Function description: Output version information
 :param s: Command entered
 Usage example: python *.py --version | -V | -v
 output:
-3.6.6 |Anaconda, Inc.| (default, Jun 29 202, 13:32:41) [MSC v.1900 64 bit (AMD64)]
+3.6.6 |Anaconda, Inc.| (default, Jun 5 2022, 15:38:43) 
+[MSC v.1900 64 bit (AMD64)]
 '''
 
 
@@ -42,7 +43,7 @@ sub-commands:
 position-arguments:
                 PATH : Print the absolute path of the file
 named-arguments:
-                --version : Show the current command-line interface version(also -v -V)
+                --version : Show the current command-line interface version
                 -h: show this help method and exit
                 -r: Read the contents in the file
                 -hex: Change the input value to hex and save it to the hex.txt
@@ -57,14 +58,19 @@ def Help(s):
     if s in ['usage', 'sub-commands', 'position-arguments', 'named-arguments']:
         result = s + ': '
         if s == 'usage':
-            result = result + '\n [--version | -V |-v ] [-h] [PATH] [-r][cat a|n|d] [-hex]'
+            result = result + '\n [--version | -V |-v ]' \
+                              '[-h] [PATH] [-r][cat a|n|d] [-hex]'
         elif s == 'sub-commands':
-            result = result + '\n cat a: add data to the file \n cat n: create a new file\n cat d: download files'
+            result = result + '\n cat a: add data to the file ' \
+                              '\n cat n: create a new file' \
+                              '\n cat d: download files'
         elif s == 'position-arguments':
             result = result + '\n PATH : Print the absolute path of the file'
         elif s == 'named-arguments':
-            result = result + '\n --version : Show the current command-line interface version(also -v -V) \n' \
-                              ' -h: show this help method and exit \n -r: Read the contents in the file \n ' \
+            result = result + '\n --version : Show the current ' \
+                              'command-line interface version(also -v -V) \n' \
+                              ' -h: show this help method and exit ' \
+                              '\n -r: Read the contents in the file \n ' \
                               '-hex: Change the input value to hex and save it to the hex.txt'
     else:
         result = 'no help topic match ' + s
