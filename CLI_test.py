@@ -37,7 +37,8 @@ class TestMutableList(unittest.TestCase):
                                        'version(also -v -V) '
                                        '\n -h: show this help method and exit '
                                        '\n -r: Read the contents in the file '
-                                       '\n -hex: Change the input value to hex '
+                                       '\n -hex: Change the '
+                                       'input value to hex '
                                        'and save it to the hex.txt')
 
     def test_read(self):
