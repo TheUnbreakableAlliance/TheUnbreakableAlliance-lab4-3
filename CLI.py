@@ -8,7 +8,7 @@ Function description: Output version information
 :param s: Command entered
 Usage example: python *.py --version | -V | -v
 output:
-3.6.6 |Anaconda, Inc.| (default, Jun 5 2022, 15:38:43) 
+3.6.6 |Anaconda, Inc.| (default, Jun 5 2022, 15:38:43)
 [MSC v.1900 64 bit (AMD64)]
 '''
 
@@ -58,8 +58,8 @@ def Help(s):
     if s in ['usage', 'sub-commands', 'position-arguments', 'named-arguments']:
         result = s + ': '
         if s == 'usage':
-            result = result + '\n [--version | -V |-v ] ' \
-                              '[-h] [PATH] [-r][cat a|n|d] [-hex]'
+            result = result + '\n [--version | -V |-v ]' \
+                              ' [-h] [PATH] [-r][cat a|n|d] [-hex]'
         elif s == 'sub-commands':
             result = result + '\n cat a: add data to the file ' \
                               '\n cat n: create a new file' \
@@ -71,7 +71,8 @@ def Help(s):
                               'command-line interface version(also -v -V) \n' \
                               ' -h: show this help method and exit ' \
                               '\n -r: Read the contents in the file \n ' \
-                              '-hex: Change the input value to hex and save it to the hex.txt'
+                              '-hex: Change the input value to hex ' \
+                              'and save it to the hex.txt'
     else:
         result = 'no help topic match ' + s
     return result
@@ -95,7 +96,7 @@ def read(s):
 
 
 '''
-Function description:          
+Function description:
     cat a: add data to the file
     cat n: create a new file
     cat d: delete a file
@@ -127,7 +128,7 @@ def cat(s):
 
 '''
 Function description: Change the input value to hex and save it to the hex.txt
-:param s: Command entered 
+:param s: Command entered
 Usage example: python *.py  10
 output:
 Write A to hex.txt
@@ -136,7 +137,8 @@ Write A to hex.txt
 
 def hex(s):
     result = ""
-    HEX = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+    HEX = ['0', '1', '2', '3', '4', '5', '6', '7',
+           '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
     num = int(s)
     while num > 15:
         num = num // 16
@@ -148,11 +150,13 @@ def hex(s):
 
 option_command = {}
 Coms = []
-fun = {'-v': v, '-V': v, '--version': v, 'PATH': PATH, '-h': Help, '-r': read, 'cat': cat, '-hex': hex}
+fun = {'-v': v, '-V': v, '--version': v, 'PATH': PATH,
+       '-h': Help, '-r': read, 'cat': cat, '-hex': hex}
 subcommand_name = []
 
 
-# Used to decorate a function so that the function serves as a command line interface
+# Used to decorate a function so that the
+# function serves as a command line interface
 def command(f):
     def r(*args, **kwargs):
         global Coms
@@ -207,7 +211,9 @@ def run():
             else:
                 c = []
                 Coms.pop(0)
-                while Coms[0] in ['usage', 'sub-commands', 'position-arguments',
+                while Coms[0] in ['usage',
+                                  'sub-commands',
+                                  'position-arguments',
                                   'named-arguments']:
                     c.append(Coms[0])
                     Coms.pop(0)
