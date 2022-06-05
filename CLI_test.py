@@ -19,15 +19,22 @@ class TestMutableList(unittest.TestCase):
             self.assertEqual(res, os.getcwd() + '\\' + s[1])
 
     def test_help(self):
-        lst = ['usage', 'sub-commands', 'position-arguments','named-arguments']
-        self.assertEqual(Help(lst[0]), 'usage: \n [--version | -V |-v ] [-h] [PATH] [-r][cat a|n|d] [-hex]')
-        self.assertEqual(Help(lst[1]), 'sub-commands: \n cat a: add data to the file \n cat n: create a new file\n '
-                                       'cat d: download files')
-        self.assertEqual(Help(lst[2]), 'position-arguments: \n PATH : Print the absolute path of the file')
-        self.assertEqual(Help(lst[3]), 'named-arguments: \n --version : Show the current command-line interface '
-                                       'version(also -v -V) \n -h: show this help method and exit \n '
-                                       '-r: Read the contents in the file \n '
-                                       '-hex: Change the input value to hex and save it to the hex.txt')
+        lst = ['usage', 'sub-commands', 'position-arguments', 'named-arguments']
+        self.assertEqual(Help(lst[0]), 'usage: \n [--version | -V |-v ] '
+                                       '[-h] [PATH] [-r][cat a|n|d] [-hex]')
+        self.assertEqual(Help(lst[1]), 'sub-commands: \n cat a: add '
+                                       'data to the file '
+                                       '\n cat n: create a new file'
+                                       '\n cat d: download files')
+        self.assertEqual(Help(lst[2]), 'position-arguments: '
+                                       '\n PATH : Print the absolute path of the file')
+        self.assertEqual(Help(lst[3]), 'named-arguments: '
+                                       '\n --version : Show the current command-line interface '
+                                       'version(also -v -V) '
+                                       '\n -h: show this help method and exit '
+                                       '\n -r: Read the contents in the file  '
+                                       '\n -hex: Change the input value to hex '
+                                       'and save it to the hex.txt')
 
     def test_read(self):
         lst = ['-r', '1.txt']
