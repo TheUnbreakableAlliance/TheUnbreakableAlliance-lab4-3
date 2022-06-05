@@ -32,7 +32,7 @@ class TestMutableList(unittest.TestCase):
                                        '\n --version : Show the current command-line interface '
                                        'version(also -v -V) '
                                        '\n -h: show this help method and exit '
-                                       '\n -r: Read the contents in the file  '
+                                       '\n -r: Read the contents in the file '
                                        '\n -hex: Change the input value to hex '
                                        'and save it to the hex.txt')
 
