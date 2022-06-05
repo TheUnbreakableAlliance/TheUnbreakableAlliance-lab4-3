@@ -1,7 +1,6 @@
 # Author: Fan Yuxin, Weng Wenchao
 import sys
 import os
-import requests
 from functools import wraps
 
 '''
