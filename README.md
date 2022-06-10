@@ -19,6 +19,7 @@ This is lab4 report.
 - support named arguments with default values (python3 -m module_name);
 - support of sub-commands with a different set of arguments
   (e.g., git have subcommands git add, git status, git log);
+  
 - automatic help and error message generation;
 - support type conversation for arguments value
   (e.g., head -n 5 conversation string “5” to int value 5);
