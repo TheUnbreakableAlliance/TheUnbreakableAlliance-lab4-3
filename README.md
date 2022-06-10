@@ -1,10 +1,10 @@
-# TheUnbreakableAlliance-lab2-2
+# TheUnbreakableAlliance-lab4-3
 
-This is lab2 report.
+This is lab4 report.
 
 ## Variant
 
-(2) Dynamic array
+(2) Command line interface builder
 
 ## Project structure
 
@@ -14,32 +14,15 @@ This is lab2 report.
 
 ## Features
 
-- cons(lst, x)
-- remove(lst,x)
-- leng(lst)
-- member(lst,v)
-- revese(lst)
-- to_list(lst)
-- from_list(list)
-- find(lst, function)
-- filter(lst, function)
-- map(lst, increment)
-- reduce(lst, sum)
-- iterator(lst)
-- empty()
-- concat(lst1, lst2)
-- __eq__( )
-- __str__( )
+- support of flags with default values (python3 --version, python3 -V, python -v);
+- support of position arguments (python3 module.py, cat file1 file2);
+- support named arguments with default values (python3 -m module_name);
+- support of sub-commands with a different set of arguments (e.g., git have subcommands git add, git status, git log);
+- automatic help and error message generation;
+- support type conversation for arguments value (e.g., head -n 5 conversation string “5” to int value 5);
 
 ## Contribution
 
 - Fan Yuxin (1124626243@qq.com) -- Dict_mutable_test.py
 - Wen Wenchao(285404190@qq.com) -- Dict_mutable.py
 
-## Changelog
-
-- Fan Yuxin uploaded `Dynamic_array_test.py`.
-- 10.05.2022 - 1
-- Wen Wenchao uploaded `Dynamic_array.py`.
-- 10.05.2022 - 0
-  - Initial
