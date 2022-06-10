@@ -10,7 +10,7 @@ cli = CLIDecorator("Welcome to CLI interfaces.")
 @cli.option('PATH', default=' ', Help='get the file\'s path')
 @cli.option('-r', default='1.txt', Help='read file')
 @cli.option('-hex', default='0',
-            Help='Change the input value '\
+            Help='Change the input value '
                  'to hex and save it to the hex.txt')
 @cli.option('cat', default=None, Help='This is a subcommand')
 @cli.argument('name', default='', Help='your hello')
