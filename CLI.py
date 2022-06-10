@@ -66,8 +66,8 @@ def read(s: str) -> List[str]:
     """
     with open(s) as f:
         lines = f.readlines()
-        for l in lines:
-            print(l, end='')
+        for i in lines:
+            print(i, end='')
         return lines
 
 
