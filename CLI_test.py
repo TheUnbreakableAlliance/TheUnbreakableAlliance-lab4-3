@@ -1,4 +1,3 @@
-# Author: Fan Yuxin, Weng Wenchao
 from CLI import *
 import unittest
 import sys
@@ -19,27 +18,28 @@ class TestMutableList(unittest.TestCase):
             self.assertEqual(res, os.getcwd() + '\\' + s[1])
 
     def test_help(self):
-        lst = ['usage', 'sub-commands',
-               'position-arguments',
-               'named-arguments']
+        lst = ['usage',
+               'sub_commands',
+               'position_arguments',
+               'named_arguments']
         self.assertEqual(Help(lst[0]), 'usage: \n [--version | -V |-v ] '
-                                       '[-h] [PATH] [-r][cat a|n|d] [-hex]')
-        self.assertEqual(Help(lst[1]), 'sub-commands: \n cat a: add '
+                                       '[-h] [PATH] '
+                                       '[-r][cat a|n|d] '
+                                       '[-hex]')
+        self.assertEqual(Help(lst[1]), 'sub_commands: \n cat a: add '
                                        'data to the file '
                                        '\n cat n: create a new file'
-                                       '\n cat d: download files')
-        self.assertEqual(Help(lst[2]), 'position-arguments: '
-                                       '\n PATH : Print the absolute path '
-                                       'of the file')
-        self.assertEqual(Help(lst[3]), 'named-arguments: '
-                                       '\n --version : Show the current '
-                                       'command-line interface '
-                                       'version(also -v -V) '
+                                       '\n cat d: delete files')
+        self.assertEqual(Help(lst[2]), 'position_arguments: '
+                                       '\n PATH : Print the '
+                                       'absolute path of the file')
+        self.assertEqual(Help(lst[3]), 'named_arguments: \n --version : '
+                                       'Show the current command_line '
+                                       'interface version(also -v -V) '
                                        '\n -h: show this help method and exit '
                                        '\n -r: Read the contents in the file '
-                                       '\n -hex: Change the '
-                                       'input value to hex '
-                                       'and save it to the hex.txt')
+                                       '\n -hex: Change the input value to '
+                                       'hex and save it to the hex.txt')
 
     def test_read(self):
         lst = ['-r', '1.txt']
@@ -61,7 +61,7 @@ class TestMutableList(unittest.TestCase):
         f2.close()
 
     def test_cat_n(self):
-        if (os.path.exists('new.txt')):
+        if os.path.exists('new.txt'):
             os.remove('new.txt')
         lst = ['cat', 'n', 'new.txt']
         cat(lst[1:])
@@ -69,7 +69,7 @@ class TestMutableList(unittest.TestCase):
         self.assertEqual(True, flag)
 
     def test_cat_d(self):
-        if (os.path.exists('file.txt')):
+        if os.path.exists('file.txt'):
             os.remove('file.txt')
         lst1 = ['cat', 'n', 'new.txt']
         cat(lst1[1:])
